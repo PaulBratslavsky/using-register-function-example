@@ -20,7 +20,7 @@ export default {
    * An asynchronous register function that runs before
    * your application is initialized.
    *
-   * This gives you an opportunity to extend code.
+   * This allows you to extend code.
    */
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
@@ -28,8 +28,8 @@ export default {
    * An asynchronous bootstrap function that runs before
    * your application gets started.
    *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
+   * This allows you to set up your data model,
+   * run jobs or perform some special logic.
    */
   bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
 };
@@ -93,15 +93,15 @@ You can find more details on how to create and configure cron jobs in the Strapi
 
 ### 1. Setup
 
-Setup a normal strapi instance. You can do so by running `npx create-strapi-app@latest my-strapi-app` and following the instructions.
+Set up a normal strapi instance. You can do so by running `npx create-strapi-app@latest my-strapi-app` and following the instructions.
 
 Once you have created the app, change into the directory by running `cd my-strapi-app` and then you can start it by running `npm run develop`.
 
 You will be asked to create your first **Admin User**.  
 
-![Create Admin User](img/001-register-strapi-admin-user.png)
+![Create Admin User](img/001-register-strapi-admin.png)
 
-Once you have done that, go ahead and in the content-type-builder create a new contentType named `special` with the following field `title` what will be a `short text field`.
+Once you have done that, go ahead and, in the content-type-builder, create a new contentType named `special` with the following field `title,` which will be a `short text field.`
 
 ![Create Content Type](img/002-register-create-field.png)
 
@@ -109,11 +109,11 @@ Click continue and add your first field.
 
 ![Create Content Type](img/003-register-create-field-2.png)
 
-Now that is done, lets look at how to inject a custom middleware into a route.
+Now that that is done let's look at how to inject custom middleware into a route.
 
 ### 2. Injecting a Custom Middleware into a Route
 
-To inject a custom middleware into a route, you first need to define your middleware and then register it within the desired route. 
+To inject a custom middleware into a route, you must first define your middleware and then register it within the desired route. 
 
 Here's an example of how you can achieve this:
 
@@ -130,7 +130,7 @@ export default (config, { strapi })=> {
 };
 ```
 
-2. To test if this succeeded we will start strapi up in console mode aka `npm run strapi console` then after it is loaded you are an interactive console version of strapi where you will type in `strapi.middlewares` and you should now see in the list `'global::customMiddleware': [AsyncFunction (anonymous)],`
+2. To test if this succeeded, we will start strapi up in console mode, aka `npm run strapi console`; then after it is loaded, you are an interactive console version of strapi where you will type in `strapi.middlewares` and you should now see in the list `'global::customMiddleware': [AsyncFunction (anonymous)],`
 
 ![Strapi Console](img/004-register-strapi-console.png)
 
